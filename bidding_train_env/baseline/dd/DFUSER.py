@@ -600,7 +600,6 @@ class DFUSER(nn.Module):
         states_comb = torch.hstack([states_curt1, states_curt2, conditions[-1].float()[None, :], states_next])
         actions = self.diffuser.inv_model(states_comb)
         actions = actions.detach().cpu()[0]  # .cpu().data.numpy()
-        actions = actions * 0.2
         return actions
 
     def save_net(self, save_path, epi):

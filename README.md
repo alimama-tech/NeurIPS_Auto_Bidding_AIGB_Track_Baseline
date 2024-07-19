@@ -17,6 +17,13 @@ pip install -r requirements.txt
 
 # Usage
 ## Dataset Link
+Due to the large size of the data file, it has been split into multiple parts for download.
+https://alimama-bidding-competition.oss-cn-beijing.aliyuncs.com/share/aigb_track_data_period_7-8.zip
+https://alimama-bidding-competition.oss-cn-beijing.aliyuncs.com/share/aigb_track_data_period_9-10.zip
+https://alimama-bidding-competition.oss-cn-beijing.aliyuncs.com/share/aigb_track_data_period_11-12.zip
+https://alimama-bidding-competition.oss-cn-beijing.aliyuncs.com/share/aigb_track_data_period_13.zip
+https://alimama-bidding-competition.oss-cn-beijing.aliyuncs.com/share/aigb_track_data_trajectory_data.zip
+
 
 ## Data Processing
 We provide traffic granularity data and additional trajectory data used for model training.
@@ -26,7 +33,15 @@ The directory structure under data should be:
 biddingTrainEnv
 |── data
     |── traffic
+        |── period-7.csv
+        |── period-8.csv
+        |── period-9.csv
+        |── period-10.csv
+        |── period-11.csv
+        |── period-12.csv
+        |── period-13.csv
     |── trajectory
+        |── trajectory_data.csv
 ```
 
 ## Train Model

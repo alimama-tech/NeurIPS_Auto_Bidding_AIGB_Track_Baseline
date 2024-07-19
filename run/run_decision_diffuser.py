@@ -7,8 +7,8 @@ from torch.utils.data import DataLoader
 
 def run_decision_diffuser(
         save_path="saved_model/DDtest",
-        train_epoch=20,
-        batch_size=500):
+        train_epoch=1,
+        batch_size=1000):
     device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
     print("train_epoch", train_epoch)
     print("batch-size", batch_size)
@@ -18,7 +18,7 @@ def run_decision_diffuser(
 
     args_dict = {'data_version': 'monk_data_small'}
     dataset = aigb_dataset(algorithm.step_len, **args_dict)
-    dataloader = DataLoader(dataset, batch_size=int(batch_size), shuffle=True, num_workers=4, pin_memory=True)
+    dataloader = DataLoader(dataset, batch_size=int(batch_size), shuffle=True, num_workers=2, pin_memory=True)
 
     # 参数数量
     total_params = sum(p.numel() for p in algorithm.parameters())
