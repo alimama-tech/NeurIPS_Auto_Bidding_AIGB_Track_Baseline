@@ -1,0 +1,6 @@
+/data/
+.idea/*
+/saved_model/
+*.DS_Store
+*__pycache__*
+*.pyc
