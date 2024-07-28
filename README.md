@@ -36,7 +36,7 @@ We provide traffic granularity data and additional trajectory data used for mode
 Download the traffic granularity data & trajectory data and place it in the biddingTrainENv/data/ folder.
 The directory structure under data should be:
 ```
-biddingTrainEnv
+NeurIPS_Auto_Bidding_AIGB_Track_Baseline
 |── data
     |── traffic
         |── period-7.csv
