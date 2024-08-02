@@ -6,7 +6,7 @@ class OfflineEnv:
     Simulate an advertising bidding environment.
     """
 
-    def __init__(self, min_remaining_budget: float = 0.01):
+    def __init__(self, min_remaining_budget: float = 0.1):
         """
         Initialize the simulation environment.
         :param min_remaining_budget: The minimum remaining budget allowed for bidding advertiser.
