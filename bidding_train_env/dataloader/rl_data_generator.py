@@ -83,6 +83,11 @@ class RlDataGenerator:
                 group_agg[f'avg_{col}_last_3'] = group_agg[col].rolling(window=3, min_periods=1).mean().shift(1)
 
             group = group.merge(group_agg, on='timeStepIndex', suffixes=('', '_agg'))
+            # 计算 realCost 和 realConversion
+            realAllCost = (group['isExposed'] * group['cost']).sum()
+            realAllConversion = group['conversionAction'].sum()
+
+
 
             for timeStepIndex in group['timeStepIndex'].unique():
                 current_timeStepIndex_data = group[group['timeStepIndex'] == timeStepIndex]
@@ -131,6 +136,8 @@ class RlDataGenerator:
                     'advertiserCategoryIndex': advertiserCategoryIndex,
                     'budget': budget,
                     'CPAConstraint': CPAConstraint,
+                    'realAllCost':realAllCost,
+                    'realAllConversion': realAllConversion,
                     'timeStepIndex': timeStepIndex,
                     'state': state,
                     'action': action,

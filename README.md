@@ -19,16 +19,20 @@ pip install -r requirements.txt
 ## Dataset Link
 Due to the large size of the data file, it has been split into multiple parts for download.
 
-https://alimama-bidding-competition.oss-cn-beijing.aliyuncs.com/share/aigb_track_data_period_7-8.zip
+https://alimama-bidding-competition.oss-cn-beijing.aliyuncs.com/share/autoBidding_aigb_track_data_period_7-8.zip
 
-https://alimama-bidding-competition.oss-cn-beijing.aliyuncs.com/share/aigb_track_data_period_9-10.zip
+https://alimama-bidding-competition.oss-cn-beijing.aliyuncs.com/share/autoBidding_aigb_track_data_period_9-10.zip
 
-https://alimama-bidding-competition.oss-cn-beijing.aliyuncs.com/share/aigb_track_data_period_11-12.zip
+https://alimama-bidding-competition.oss-cn-beijing.aliyuncs.com/share/autoBidding_aigb_track_data_period_11-12.zip
 
-https://alimama-bidding-competition.oss-cn-beijing.aliyuncs.com/share/aigb_track_data_period_13.zip
+https://alimama-bidding-competition.oss-cn-beijing.aliyuncs.com/share/autoBidding_aigb_track_data_period_13.zip
 <br>
 <br>
-https://alimama-bidding-competition.oss-cn-beijing.aliyuncs.com/share/aigb_track_data_trajectory_data.zip
+https://alimama-bidding-competition.oss-cn-beijing.aliyuncs.com/share/autoBidding_aigb_track_data_trajectory_data.zip
+
+https://alimama-bidding-competition.oss-cn-beijing.aliyuncs.com/share/autoBidding_aigb_track_data_trajectory_data_extended_1.zip
+
+https://alimama-bidding-competition.oss-cn-beijing.aliyuncs.com/share/autoBidding_aigb_track_data_trajectory_data_extended_2.zip
 
 
 ## Data Processing
@@ -48,6 +52,8 @@ NeurIPS_Auto_Bidding_AIGB_Track_Baseline
         |── period-13.csv
     |── trajectory
         |── trajectory_data.csv
+        |── trajectory_data_extended_1.csv
+        |── trajectory_data_extended_2.csv
 ```
 
 ## Train Model
@@ -154,13 +160,15 @@ python  bidding_train_env/dataloader/rl_data_generator.py
 * **(c3) advertiserCategoryIndex**: Represents the index of the advertiser's industry category.
 * **(c4) budget**: Represents the advertiser's budget for a delivery period.
 * **(c5) CPAConstraint**: Represents the CPA constraint of the advertiser.
-* **(c6) timeStepIndex**: Represents the index of the current decision time step.
-* **(c7) state**: Represents the advertiser's state in this timeStep.
-* **(c8) action**: Represents the advertiser's action in this timeStep.
-* **(c9) reward**: Represents the advertiser's sparse reward(total conversion) in this timeStep.
-* **(c10) reward_continuous**: Represents the advertiser's continuous reward(The sum of the pValues of all exposed traffic) in this timeStep.
-* **(c11) done**: Represents the completion status of the advertising period, where 1 implies either the final decision step of the delivery period or the advertiser's remaining budget falling below the system-set minimum remaining budget.
-* **(c12) next_state**: Represents the advertiser's next state in this timeStep.
+* **(c6) realAllCost**: Represents the cost of the advertiser during the entire period.
+* **(c7) realAllConversion**: Represents the conversions of the advertiser during the entire period.
+* **(c8) timeStepIndex**: Represents the index of the current decision time step.
+* **(c9) state**: Represents the advertiser's state in this timeStep.
+* **(c10) action**: Represents the advertiser's action in this timeStep.
+* **(c11) reward**: Represents the advertiser's sparse reward(total conversion) in this timeStep.
+* **(c12) reward_continuous**: Represents the advertiser's continuous reward(The sum of the pValues of all exposed traffic) in this timeStep.
+* **(c13) done**: Represents the completion status of the advertising period, where 1 implies either the final decision step of the delivery period or the advertiser's remaining budget falling below the system-set minimum remaining budget.
+* **(c14) next_state**: Represents the advertiser's next state in this timeStep.
 
 
 
