@@ -38,7 +38,7 @@ class aigb_dataset(Dataset):
                               dtype=torch.float32)
         reward = torch.tensor(self.rewards[self.candidate_pos[index]:self.candidate_pos[index + 1], :],
                               dtype=torch.float32)
-        action = action - 1
+        # action = action - 1
         # 当前序列的长度
         len_state = len(state)
         # 进行padding
